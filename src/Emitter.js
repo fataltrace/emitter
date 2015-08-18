@@ -21,7 +21,7 @@ export default class {
         this.handlers.splice(index, 1);
     }
 
-    emit (eventName) {
-        this.handlers[eventName].forEach(handler => handler.call(this));
+    emit (eventName, ...args) {
+        this.handlers[eventName].forEach(handler => handler.apply(this, args));
     }
 }
