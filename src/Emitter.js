@@ -11,14 +11,14 @@ export default class {
         this.handlers[eventName].push(handler);
     }
 
-    off (handler) {
-        let index = this.handlers.indexOf(handler);
+    off (eventName, handler) {
+        let index = this.handlers[eventName].indexOf(handler);
 
         if (index === -1) {
             return;
         }
 
-        this.handlers.splice(index, 1);
+        this.handlers[eventName].splice(index, 1);
     }
 
     emit (eventName, ...args) {
