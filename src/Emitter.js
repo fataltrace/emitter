@@ -22,6 +22,10 @@ export default class {
     }
 
     emit (eventName, ...args) {
+        if (!this.handlers[eventName]) {
+            return;
+        }
+        
         this.handlers[eventName].forEach(handler => handler.apply(this, args));
     }
 }
