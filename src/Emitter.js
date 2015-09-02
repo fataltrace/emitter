@@ -3,12 +3,14 @@ export default class {
         this.handlers = {};
     }
 
-    on (eventName, handler) {
-        if (!this.handlers[eventName]) {
-            this.handlers[eventName] = [];
-        }
+    on (eventNames, handler) {
+        eventNames.split(' ').forEach(eventName => {
+            if (!this.handlers[eventName]) {
+                this.handlers[eventName] = [];
+            }
 
-        this.handlers[eventName].push(handler);
+            this.handlers[eventName].push(handler);
+        });
     }
 
     off (eventName, handler) {
@@ -25,7 +27,7 @@ export default class {
         if (!this.handlers[eventName]) {
             return;
         }
-        
+
         this.handlers[eventName].forEach(handler => handler.apply(this, args));
     }
 }
