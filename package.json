@@ -2,7 +2,7 @@
   "name": "es6-emitter",
   "version": "0.2.0",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "dist/emitter.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
